@@ -62,19 +62,12 @@ Piece Piezas::dropPiece(int column)
         }
         return Invalid;
     }
-    for(int i = 2; i >= 0; i--){
+    for(int i = 0; i  < BOARD_ROWS; i++){
         if(board[i][column] == Blank){
             board[i][column] = turn;
-            Piece placePieced = turn;
-            if(turn == X){
-                turn = O;
-            }
-            else{
-                turn = X;
-            }
-            return placePieced;
+            break;
         }
-        else if(i == 0){
+        else if(i == 2){
             if(turn == X){
                 turn = O;
             }
@@ -84,6 +77,14 @@ Piece Piezas::dropPiece(int column)
             return Blank;
         }
     }
+    Piece placePieced = turn;
+    if(turn == X){
+        turn = O;
+    }
+    else{
+        turn = X;
+    }
+    return placePieced;
 }
 
 /**
