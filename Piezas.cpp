@@ -53,7 +53,7 @@ void Piezas::reset()
 **/ 
 Piece Piezas::dropPiece(int column)
 {
-    if(column < 0 || column > 3){
+    if(column < 1 || column > 4){
         if(turn == X){
             turn = O;
         }
@@ -63,8 +63,8 @@ Piece Piezas::dropPiece(int column)
         return Invalid;
     }
     for(int i = 2; i >= 0; i--){
-        if(board[i][column] == Blank){
-            board[i][column] = turn;
+        if(board[i][column-1] == Blank){
+            board[i][column-1] = turn;
             break;
         }
         else if(i == 2){
@@ -93,13 +93,13 @@ Piece Piezas::dropPiece(int column)
 **/
 Piece Piezas::pieceAt(int row, int column)
 {
-    if(row < 0 || row > 2 || column < 0 || column > 3){
+    if(row < 1 || row > 3 || column < 1 || column > 4){
         return Invalid;
     }
-    if(board[row][column] == Blank){
+    if(board[row-1][column-1] == Blank){
         return Blank;
     }
-    return board[row][column];
+    return board[row-1][column-1];
 }
 
 /**
