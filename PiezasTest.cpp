@@ -19,13 +19,13 @@ TEST(PiezasTest, sanityCheck)
 	ASSERT_TRUE(true);
 }
 
-/*
 TEST(PiezasTest, dropPieceOutboundTest){
 	Piezas pieza;
 	ASSERT_EQ(pieza.dropPiece(4), Invalid);
 	ASSERT_EQ(pieza.dropPiece(-1), Invalid);
 }
 
+/*
 TEST(PiezasTest, dropPieceTest){
 	Piezas pieza;
 	ASSERT_EQ(pieza.dropPiece(0), X);
