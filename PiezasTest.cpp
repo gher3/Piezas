@@ -18,3 +18,19 @@ TEST(PiezasTest, sanityCheck)
 {
 	ASSERT_TRUE(true);
 }
+
+TEST(PiezasTest, dropPieceOutboundTest){
+	Piezas pieza;
+	ASSERT_EQ(pieza.dropPiece(5), Invalid);
+	ASSERT_EQ(pieza.dropPiece(0), Invalid);
+}
+
+TEST(PiezasTest, dropPieceTest){
+	Piezas pieza;
+	ASSERT_EQ(pieza.dropPiece(1), X);
+	ASSERT_EQ(pieza.placeAt(3, 1), X);
+	ASSERT_EQ(pieza.dropPiece(1), O);
+	ASSERT_EQ(pieza.placeAt(2, 1), O);
+	ASSERT_EQ(pieza.dropPiece(1), X);
+	ASSERT_EQ(pieza.placeAt(1, 1), X);
+}
