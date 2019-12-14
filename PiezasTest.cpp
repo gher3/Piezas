@@ -21,16 +21,16 @@ TEST(PiezasTest, sanityCheck)
 
 TEST(PiezasTest, dropPieceOutboundTest){
 	Piezas pieza;
-	ASSERT_EQ(pieza.dropPiece(5), Invalid);
-	ASSERT_EQ(pieza.dropPiece(0), Invalid);
+	ASSERT_EQ(pieza.dropPiece(4), Invalid);
+	ASSERT_EQ(pieza.dropPiece(-1), Invalid);
 }
 
 TEST(PiezasTest, dropPieceTest){
 	Piezas pieza;
-	ASSERT_EQ(pieza.dropPiece(1), X);
-	ASSERT_EQ(pieza.pieceAt(3, 1), X);
-	ASSERT_EQ(pieza.dropPiece(1), O);
-	ASSERT_EQ(pieza.pieceAt(2, 1), O);
-	ASSERT_EQ(pieza.dropPiece(1), X);
-	ASSERT_EQ(pieza.pieceAt(1, 1), X);
+	ASSERT_EQ(pieza.dropPiece(0), X);
+	ASSERT_EQ(pieza.pieceAt(2, 0), X);
+	ASSERT_EQ(pieza.dropPiece(0), O);
+	ASSERT_EQ(pieza.pieceAt(1, 0), O);
+	ASSERT_EQ(pieza.dropPiece(0), X);
+	ASSERT_EQ(pieza.pieceAt(0, 0), X);
 }
