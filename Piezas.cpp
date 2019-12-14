@@ -96,10 +96,10 @@ Piece Piezas::pieceAt(int row, int column)
     if(row < 0 || row > 2 || column < 0 || column > 3){
         return Invalid;
     }
-    if(board[row-1][column-1] == Blank){
+    if(board[row][column] == Blank){
         return Blank;
     }
-    return board[row-1][column-1];
+    return board[row][column];
 }
 
 /**
