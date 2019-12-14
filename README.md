@@ -1,5 +1,7 @@
 # Piezas
 
+[![Build Status](https://travis-ci.org/gher3/Piezas.svg?branch=master)](https://travis-ci.org/gher3/Piezas) [![Coverage Status](https://coveralls.io/repos/github/gher3/Piezas/badge.svg?branch=master)](https://coveralls.io/github/gher3/Piezas?branch=master)
+
 ## Associated Enumerated Types
 `Piece` has four possible values: `X`,`O`,`Invalid`, and `Blank`
 
