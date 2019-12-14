@@ -25,7 +25,6 @@ TEST(PiezasTest, dropPieceOutboundTest){
 	ASSERT_EQ(pieza.dropPiece(4), Invalid);
 	ASSERT_EQ(pieza.dropPiece(-1), Invalid);
 }
-*/
 
 TEST(PiezasTest, dropPieceTest){
 	Piezas pieza;
@@ -36,3 +35,4 @@ TEST(PiezasTest, dropPieceTest){
 	ASSERT_EQ(pieza.dropPiece(0), X);
 	ASSERT_EQ(pieza.pieceAt(0, 0), X);
 }
+*/
