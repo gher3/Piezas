@@ -74,7 +74,7 @@ Piece Piezas::dropPiece(int column)
             else{
                 turn = X;
             }
-            return blank;
+            return Blank;
         }
     }
     Piece placePieced = turn;
