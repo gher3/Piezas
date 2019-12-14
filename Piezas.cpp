@@ -22,6 +22,12 @@
 **/
 Piezas::Piezas()
 {
+    for(int i = 0; i < BOARD_ROWS; i++){
+        for(int j =0; j < BOARD_COLS; j++){
+            board[i][j] = Blank;
+        }
+    }
+    turn = X;
 }
 
 /**
@@ -30,6 +36,11 @@ Piezas::Piezas()
 **/
 void Piezas::reset()
 {
+    for(int i = 0; i < BOARD_ROWS; i++){
+        for(int j =0; j < BOARD_COLS; j++){
+            board[i][j] = Blank;
+        }
+    }
 }
 
 /**
@@ -42,7 +53,38 @@ void Piezas::reset()
 **/ 
 Piece Piezas::dropPiece(int column)
 {
-    return Blank;
+    if(column < 0 || column > 3){
+        if(turn == X){
+            turn = O;
+        }
+        else{
+            turn = X;
+        }
+        return Invalid;
+    }
+    for(int i = 2; i >= 0; i--){
+        if(board[i][column] == Blank){
+            board[i][column] = turn;
+            break;
+        }
+        else if(i == 2){
+            if(turn == X){
+                turn = O;
+            }
+            else{
+                turn = X;
+            }
+            return blank;
+        }
+    }
+    Piece placePieced = turn;
+    if(turn == X){
+        turn = O;
+    }
+    else{
+        turn = X;
+    }
+    return placePieced;
 }
 
 /**
@@ -51,7 +93,13 @@ Piece Piezas::dropPiece(int column)
 **/
 Piece Piezas::pieceAt(int row, int column)
 {
-    return Blank;
+    if(row < 0 || row > 2 || column < 0 || column > 3){
+        return Invalid;
+    }
+    if(board[row][column] == Blank){
+        return Blank;
+    }
+    return board[row][column];
 }
 
 /**
@@ -65,5 +113,51 @@ Piece Piezas::pieceAt(int row, int column)
 **/
 Piece Piezas::gameState()
 {
-    return Blank;
+    int xWins, oWins;
+    for(int i = 0; i < BOARD_ROWS; i++){
+        for(int j = 0; j < BOARD_COLS; j++){
+            if(board[i][j] == Blank){
+                return Invalid;
+            }
+            if(j+2 < BOARD_COLS){
+                if(board[i][j] == board[i][j+1] && board[i][j] == board[i][j+2]){
+                    if(board[i][j] == X){
+                        xWins = 3;
+                    }
+                    else{
+                        oWins = 3;
+                    }
+                }
+            }
+            else if(i+3 < BOARD_ROWS){
+                if(board[i][j] == board[i+1][j] && board[i][j] == board[i+2][j] && board[i][j] == board[i+3][j]){
+                    if(board[i][j] == X){
+                        xWins = 4;
+                    }
+                    else{
+                        oWins = 4;
+                    }
+                }
+            }
+            else if(i+2 < BOARD_ROWS){
+                if(board[i][j] == board[i+1][j] && board[i][j] == board[i+2][j]){
+                    if(board[i][j] == X){
+                        xWins = 3;
+                    }
+                    else{
+                        oWins = 3;
+                    }
+                }
+            }
+        }
+    }
+    if(xWins > oWins){
+        return X;
+    }
+    else if(oWins > xWins){
+        return O;
+    }
+    else{
+        return Blank;
+    }
 }
