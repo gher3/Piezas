@@ -28,9 +28,9 @@ TEST(PiezasTest, dropPieceOutboundTest){
 TEST(PiezasTest, dropPieceTest){
 	Piezas pieza;
 	ASSERT_EQ(pieza.dropPiece(1), X);
-	ASSERT_EQ(pieza.placeAt(3, 1), X);
+	ASSERT_EQ(pieza.pieceAt(3, 1), X);
 	ASSERT_EQ(pieza.dropPiece(1), O);
-	ASSERT_EQ(pieza.placeAt(2, 1), O);
+	ASSERT_EQ(pieza.pieceAt(2, 1), O);
 	ASSERT_EQ(pieza.dropPiece(1), X);
-	ASSERT_EQ(pieza.placeAt(1, 1), X);
+	ASSERT_EQ(pieza.pieceAt(1, 1), X);
 }
